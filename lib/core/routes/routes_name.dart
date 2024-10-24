@@ -1,6 +1,6 @@
 class RoutesName {
-  static const String home = '/home';
-  static const String anotherScreen = '/another';
+  static const String homeView = '/home';
+  static const String loginView = '/login';
 
-  // Add more route names here as needed
+  static const String otpView = '/otp';
 }

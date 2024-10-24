@@ -3,18 +3,22 @@ import 'package:provider/provider.dart';
 import 'package:travel_app/view/home/widgets/search_bar.dart';
 import 'package:travel_app/view/home/widgets/travel_card.dart';
 
-import '../../core/app_media.dart';
+import '../../core/constants/app_media.dart';
 import '../../core/theme.dart';
 import '../../view_model/home_view_model.dart';
 import '../wigets/custom_bottom_nav.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomeView extends StatelessWidget {
+  // trim the name string till spaces bar...
+
+  final String name;
+  const HomeView({super.key, required this.name});
 
   @override
   Widget build(BuildContext context) {
     final homeViewModel = context.watch<HomeViewModel>();
 
+    String trimmedName = name.split(" ")[0];
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -29,7 +33,7 @@ class HomeScreen extends StatelessWidget {
             ),
             const Spacer(),
             Text(
-              "Hello, Sourany!",
+              "Hello, $trimmedName",
               style: Theme.of(context).textTheme.titleLarge,
             ),
             const Spacer(),
@@ -45,7 +49,7 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: Column(
+      body: ListView(
         children: [
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),

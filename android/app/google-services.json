@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "675590507816",
+    "project_id": "trip-planning-70a32",
+    "storage_bucket": "trip-planning-70a32.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:675590507816:android:b48525481dcaefcb90d41d",
+        "android_client_info": {
+          "package_name": "com.example.travel_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "675590507816-meebfgjdi6b45u6la0mms57mibhogvql.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.travel_app",
+            "certificate_hash": "c16ee7352c23c2447e715335ec1384e91cc98615"
+          }
+        },
+        {
+          "client_id": "675590507816-rdippq4oqtbcns3s46gqqj801e4c55oc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbIIoTTTOnduhXOjOPFcd02ZOQvCuB5s4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "675590507816-rdippq4oqtbcns3s46gqqj801e4c55oc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "675590507816-hnpenen8s8649ldvsv5a1oh2u5jhckdo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.travelApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

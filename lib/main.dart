@@ -1,12 +1,18 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:travel_app/core/providers/provider.dart';
+import 'package:travel_app/firebase_options.dart';
 
-import 'core/routes/routes.dart'; // <-- Import AppRouter for routes
-import 'core/routes/routes_name.dart'; // <-- Import route names
+import 'core/routes/routes.dart';
+import 'core/routes/routes_name.dart';
 import 'core/theme.dart';
-import 'view_model/home_view_model.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -15,14 +21,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => HomeViewModel(),
+    return MultiProvider(
+      providers: AppProviders.providers,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: AppTheme.lightTheme,
-        initialRoute: RoutesName.home, // <-- Set the initial route
-        onGenerateRoute:
-            AppRouter.generateRoute, // <-- Use onGenerateRoute for navigation
+        initialRoute: RoutesName.loginView,
+        onGenerateRoute: AppRouter.generateRoute,
       ),
     );
   }

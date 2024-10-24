@@ -15,6 +15,7 @@ class TravelCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     final HomeViewModel homeViewModel = context.watch<HomeViewModel>();
     return Container(
       width: double.infinity,
@@ -104,13 +105,14 @@ class TravelCard extends StatelessWidget {
           homeViewModel.isNavBarVisible
               ? const SizedBox()
               : Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  // mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     homeViewModel.isFirstPage
-                        ? const SizedBox(width: 100)
+                        ? SizedBox(width: size.width * 0.15)
                         : TextButton(
                             onPressed: () {
                               homeViewModel.toggleFirstPage();
+                              homeViewModel.toggleReadMore();
                             },
                             style: TextButton.styleFrom().copyWith(
                               foregroundColor:
@@ -123,6 +125,12 @@ class TravelCard extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom().copyWith(
+                        padding: WidgetStateProperty.all(
+                          const EdgeInsets.symmetric(
+                            horizontal: 20,
+                            vertical: 10,
+                          ),
+                        ),
                         backgroundColor: WidgetStateProperty.all(
                           AppTheme.buttonBgColor,
                         ),
@@ -138,6 +146,7 @@ class TravelCard extends StatelessWidget {
                         ? TextButton(
                             onPressed: () {
                               homeViewModel.toggleFirstPage();
+                              homeViewModel.toggleReadMore();
                             },
                             style: TextButton.styleFrom().copyWith(
                               foregroundColor: WidgetStateProperty.all(
@@ -147,7 +156,7 @@ class TravelCard extends StatelessWidget {
                             child: const Text("Next",
                                 style: TextStyle(fontSize: 20)),
                           )
-                        : const SizedBox(width: 100),
+                        : SizedBox(width: size.width * 0.1),
                   ],
                 )
         ],

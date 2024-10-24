@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class HomeViewModel extends ChangeNotifier {
   bool _isExpanded = false;
-   bool _isFirstPage = true;
+  bool _isFirstPage = true;
   bool _isNavBarVisible = true;
 
   bool get isExpanded => _isExpanded;
