@@ -1,9 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:travel_app/view_model/home_view_model.dart';
+import 'package:trip_planning/view_model/home_view_model.dart';
 
-import '../../../core/theme.dart';
+import '../../core/theme.dart';
 
 class ReadMoreText extends StatelessWidget {
   final String text;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:travel_app/core/theme.dart';
+import 'package:trip_planning/core/theme.dart';
 
 class GuestSelector extends StatelessWidget {
   final int _guestCount = 2;

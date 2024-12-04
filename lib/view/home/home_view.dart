@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:travel_app/view/home/widgets/search_bar.dart';
-import 'package:travel_app/view/home/widgets/travel_card.dart';
+import 'package:trip_planning/view/home/widgets/search_bar.dart';
+import 'package:trip_planning/view/home/widgets/travel_card.dart';
 
 import '../../core/constants/app_media.dart';
 import '../../core/theme.dart';
@@ -78,7 +78,6 @@ class HomeView extends StatelessWidget {
             homeViewModel.isNavBarVisible ? kBottomNavigationBarHeight : 0.0,
         child: FloatingActionButton(
           onPressed: () {},
-          shape: const CircleBorder(),
           child: const Icon(Icons.add, color: Colors.black),
         ),
       ),

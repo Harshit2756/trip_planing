@@ -1,8 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:travel_app/core/providers/provider.dart';
-import 'package:travel_app/firebase_options.dart';
+import 'package:trip_planning/core/providers/provider.dart';
+import 'package:trip_planning/firebase_options.dart';
 
 import 'core/routes/routes.dart';
 import 'core/routes/routes_name.dart';

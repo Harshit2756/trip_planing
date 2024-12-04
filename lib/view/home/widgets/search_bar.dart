@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:travel_app/view/home/widgets/guest_selector.dart';
+import 'package:trip_planning/view/home/widgets/guest_selector.dart';
 
 import '../../../core/theme.dart';
 

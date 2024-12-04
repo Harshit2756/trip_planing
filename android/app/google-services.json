@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:675590507816:android:b48525481dcaefcb90d41d",
         "android_client_info": {
-          "package_name": "com.example.travel_app"
+          "package_name": "com.example.trip_planning"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "675590507816-meebfgjdi6b45u6la0mms57mibhogvql.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.travel_app",
+            "package_name": "com.example.trip_planning",
             "certificate_hash": "c16ee7352c23c2447e715335ec1384e91cc98615"
           }
         },
