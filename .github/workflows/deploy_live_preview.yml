@@ -256,7 +256,7 @@ jobs:
                   _buildSocialLink(
                     icon: FontAwesomeIcons.globe,
                     label: 'Portfolio',
-                    url: 'https://harshit2756.github.io/portfolio/',
+                    url: 'https://harshit-khandelwal.web.app/',
                   ),
                   _buildSocialLink(
                     icon: FontAwesomeIcons.github,
@@ -335,36 +335,30 @@ jobs:
           import 'package:device_preview/device_preview.dart';
           import 'device_preview_button.dart';
 
-          #. Replace with your main imports
-          import 'package:attendance_app/shared/routes/routes_name.dart';
+          import 'package:firebase_core/firebase_core.dart';
           import 'package:flutter/material.dart';
-          import 'package:flutter/services.dart';
-          import 'package:get/get.dart';
-
-          import 'shared/routes/app_routes.dart';
-          import 'shared/utils/theme/colors.dart';
-          import 'shared/utils/theme/theme.dart';
+          import 'package:provider/provider.dart';
+          import 'package:trip_planning/core/providers/provider.dart';
+          import 'package:trip_planning/firebase_options.dart';
+          import 'core/routes/routes.dart';
+          import 'core/routes/routes_name.dart';
+          import 'core/theme.dart';
 
           void main() async {
-
+            WidgetsFlutterBinding.ensureInitialized();
+            await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
             runApp(
               DevicePreview(
-                backgroundColor: Colors.white, #. change the color
+                backgroundColor: Colors.white,
                 tools: const [
-                  CustomPlugin(
-                    apkDownloadUrl: "https://github.com/${{ github.repository }}/releases/download/v1.0.0/app-release.apk", #. Dynamic APK download URL
-                    sourceCodeUrl: "https://github.com/${{ github.repository }}/archive/refs/tags/v1.0.0.zip", #. Dynamic source code URL
+                 CustomPlugin(
+                    apkDownloadUrl: "https://github.com/${{ github.repository }}/releases/download/v1.0.${{ github.run_number }}/app-release.apk",
+                    sourceCodeUrl: "https://github.com/${{ github.repository }}/archive/refs/tags/v1.0.${{ github.run_number }}.zip",
                   ),
-                  DeviceSection(
-                    frameVisibility: false,
-                    orientation: false,
-                  ),
-                  SystemSection(
-                    locale: false,
-                    theme: true,
-                  ),
+                  DeviceSection(frameVisibility: true, orientation: false, virtualKeyboard: true, model: true),
+                  SettingsSection(backgroundTheme: false, toolsTheme: true),
+                  // SystemSection(locale: false, theme: false),
                   DevicePreviewScreenshot(),
-                  SettingsSection(),
                 ],
                 devices: [
                   Devices.android.samsungGalaxyA50,
@@ -383,33 +377,32 @@ jobs:
                   Devices.ios.iPhoneSE,
                 ],
                 enabled: true,
-                builder: (context) => const App(), #. replace your app file
+                builder: (context) => const MyApp(),
               ),
             );
           }
-          #. replace Your app class and add them to material_app
-            # locale: DevicePreview.locale(context),
-            # builder: DevicePreview.appBuilder,
-          class App extends StatelessWidget {
-            const App({super.key});
+
+          class MyApp extends StatelessWidget {
+            const MyApp({super.key});
 
             @override
             Widget build(BuildContext context) {
-              return GetMaterialApp(
-                title: 'Attendance App',
-                debugShowCheckedModeBanner: false,
-                themeMode: ThemeMode.light,
-                theme: HAppTheme.lightTheme,
-                initialRoute: HRoutesName.splash,
-                getPages: HAppRoutes.routes,
-                defaultTransition: Transition.fade,
+              return MultiProvider(
+                providers: AppProviders.providers,
+                child: MaterialApp(
+                  debugShowCheckedModeBanner: false,
+                  theme: AppTheme.lightTheme,
+                  initialRoute: RoutesName.loginView,
+                  onGenerateRoute: AppRouter.generateRoute,
+                ),
               );
             }
           }
+
           EOL
 
       - name: Build Web
-        run: flutter build web --base-href "/flutter_chess/" #. Specify the base href
+        run: flutter build web --base-href "/trip_planning/"
 
       - name: Update docs directory
         run: |
