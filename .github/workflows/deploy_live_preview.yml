@@ -68,7 +68,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.27.1" #. Specify the Flutter version
+          flutter-version: "3.29.0"
           channel: "stable"
 
       - name: Install dependencies
@@ -77,7 +77,7 @@ jobs:
           flutter pub add device_preview
           flutter pub add device_preview_screenshot
           flutter pub add font_awesome_flutter
-          flutter pub get url_launcher
+          flutter pub add url_launcher
           flutter pub get
 
       - name: Update device_preview_button.dart for preview
